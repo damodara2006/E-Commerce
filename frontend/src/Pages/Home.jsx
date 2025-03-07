@@ -8,7 +8,7 @@ function Home() {
     let category = ["Men", "Women", "Electronics", "Jewellery", "Shoes", "Kid's Wear", "Sports", "Toys"]
 
     function handleNav() {
-        setNav((prev) => (prev === 0 ? `2/3` : 0))
+        setNav((prev) => (prev === 0 ? 2 / 3 : 0))
     }
 
     return (
@@ -43,7 +43,7 @@ function Home() {
             </div>
 
             <div className='relative w-full justify-center flex px-[5%] h-fit' >
-                <ul className={`bg-gray-100 w-[25%] flex absolute flex-col justify-between transition-all duration-200 -left-${nav} `}>
+                <ul className='bg-gray-100 w-[25%] flex absolute flex-col justify-between transition-all duration-200' style={{ left: `${nav === 0 ? '-100%' : '0'}` }}>
                     {category.map((item, key) => (
                         <li className='border border-gray-200 p-1.5 pl-[10%] h-full flex items-center hover:text-red-500 font-semibold transition-all' key={key}>{item}</li>
                     ))}
