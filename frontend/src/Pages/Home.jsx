@@ -1,14 +1,30 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { LuTableOfContents } from "react-icons/lu";
 import { MdOutlineSearch } from "react-icons/md";
 import home from "../assets/Image.png"
-
+import axios from "axios"
+import { useNavigate } from 'react-router-dom';
 function Home() {
+
+    const navigate = useNavigate()
+
+   
+
     const [nav, setNav] = useState(0)
     let category = ["Men", "Women", "Electronics", "Jewellery", "Shoes", "Kid's Wear", "Sports", "Toys"]
 
     function handleNav() {
         setNav((prev) => (prev === 0 ? 2 / 3 : 0))
+    }
+
+    const  handleuser = (key)=>{
+        console.log("work")
+        console.log(key)
+        if(key==0){
+            console.log(key)
+            console.log("working")
+            navigate("/men")
+        }
     }
 
     return (
@@ -28,8 +44,8 @@ function Home() {
                 <nav className='flex p-1.5 relative justify-between ' >
                     <div className='flex items-center w-[20%] justify-evenly' >
                         {nav === 2 / 3 ?
-                            <LuTableOfContents onClick={handleNav} className='transition-all duration-500' /> :
-                            <div className='transition-all duration-500 px-1' onClick={handleNav}>X</div>}
+                            <div className='transition-all duration-500 px-1 cursor-pointer ' onClick={handleNav}  >X</div> :
+                            <LuTableOfContents onClick={handleNav} className='transition-all duration-500 cursor-pointer' /> }
                         CATEGORY
                     </div>
                     <ul className='flex font-semibold justify-evenly w-[50%]' >
@@ -45,7 +61,7 @@ function Home() {
             <div className='relative w-full justify-center flex px-[5%] h-fit' >
                 <ul className='bg-gray-100 w-[25%] flex absolute flex-col justify-between transition-all duration-200' style={{ left: `${nav === 0 ? '-100%' : '0'}` }}>
                     {category.map((item, key) => (
-                        <li className='border border-gray-200 p-1.5 pl-[10%] h-full flex items-center hover:text-red-500 font-semibold transition-all' key={key}>{item}</li>
+                        <li onClick={()=>handleuser(key)} className='border border-gray-200 p-1.5 pl-[10%] h-full flex items-center hover:text-red-500 font-semibold transition-all' key={key}>{item}</li>
                     ))}
                 </ul>
                 <div className='w-[100%] ml-2.5'>
