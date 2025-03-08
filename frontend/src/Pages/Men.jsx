@@ -3,15 +3,11 @@ import { useEffect } from "react";
 import axios from "axios";
 function Men() {
   const [data, setdata] = useState([]);
-  let urls = [];
   useEffect(() => {
     axios.get("http://localhost:8000/alluser/1").then((res) => {
       setdata(res.data);
     });
-  }, []);
-
-  urls = data.map((cards) => cards.url);
-  console.log(urls);
+  });
 
   return (
     <div>
@@ -23,7 +19,7 @@ function Men() {
                 className=" relative min-w-[150px] h-[250px] border rounded-md justify-center flex items-center bottom-0"
                 key={key}
               >
-                <p className=" absolute bottom-3">{card.header}</p>
+                <p className=" absolute bottom-3">{card.name}</p>
                 <img
                   className="w-[100%] h-[80%] rounded-md absolute top-0"
                   src={card.url}
