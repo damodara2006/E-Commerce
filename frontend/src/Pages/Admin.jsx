@@ -3,11 +3,11 @@
 
   function Admin() {
     let publicId;
-    const [header, setheader] = useState();
-
+    const [name, setname] = useState();
+    const[value,setvalu] = useState(1)
     const [url, seturl] = useState();
     const handlefiles = async (e) => {
-      const file = e.target.files[0];
+    const file = e.target.files[0];
 
       const data = new FormData();
       data.append("file", file);
@@ -34,15 +34,35 @@
     };
 
     const handleheader = () => {
-      console.log(header);
-      axios
-        .post("http://localhost:8000/", { header, url })
+
+      if(name && url){
+        axios
+        .post(`http://localhost:8000/${value}`, { name, url })
         .then((res) => console.log(res));
       window.location.reload();
+      }
+     
     };
 
+
     return (
-      <div className="flex w-screen flex-col">
+
+
+      
+      
+      <div className="flex w-screen flex-col justify-center items-center">
+
+
+        <select className="w-[15%] flex text-center " name="Select" id="items" value={value} onChange={e=> setvalu(e.target.value)}>
+          <option value="1">Men</option>
+          <option value="2">Women</option>
+          <option value="3">Electronics</option>
+          <option value="4">Jewellery</option>
+          <option value="5">Shoes</option>
+          <option value="6">Kid's Wear</option>
+          <option value="7">Sports</option>
+          <option value="8">Toys</option>
+        </select>
         <div type="form" className="flex justify-center">
           <input
             type="text"
@@ -50,8 +70,8 @@
             placeholder="Enter the name of product"
             name=""
             id=""
-            value={header}
-            onChange={(e) => setheader(e.target.value)}
+            value={name}
+            onChange={(e) => setname(e.target.value)}
           />
         </div>
         <div className="flex justify-center items-center flex-col text-center">
@@ -62,7 +82,7 @@
             id="inputfile"
             onChange={(e) => handlefiles(e)}
           />
-          <img src={url} className="w-full h-full" alt="" />
+          <img src={url} className="w-6/12 h-6/12" alt="" />
           <button className="border" type="submit" onClick={handleheader}>
             SUBMIT
           </button>

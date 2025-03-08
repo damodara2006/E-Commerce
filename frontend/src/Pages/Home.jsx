@@ -1,4 +1,4 @@
-        import React, { useEffect, useState } from "react";
+        import React, {  useState } from "react";
         import { LuTableOfContents } from "react-icons/lu";
         import { MdOutlineSearch } from "react-icons/md";
         import home from "../assets/Image.png";
@@ -23,13 +23,31 @@
         }
 
         const handleuser = (key) => {
-            console.log("work");
-            console.log(key);
             if (key == 0) {
-            console.log(key);
-            console.log("working");
             navigate("/men");
             }
+            if(key == 1){
+                navigate("/women")
+            }
+            if(key == 2){
+                navigate("/electronics")
+            }
+            if(key == 3){
+                navigate("/jewellery")
+            }
+            if(key == 4){
+                navigate("/shoes")
+            }
+            if(key == 5){
+                navigate("/kids")
+            }
+            if(key == 6){
+                navigate("/sports")
+            }
+            if(key == 7){
+                navigate("/toys")
+            }
+            
         };
 
         return (

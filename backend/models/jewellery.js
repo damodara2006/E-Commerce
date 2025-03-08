@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 import { Schema } from "mongoose";
 
-const Men = new Schema({
+const Jewellery = new Schema({
   name: {
     type: String
   },
@@ -10,5 +10,5 @@ const Men = new Schema({
   }
 });
 
-const MenSchema = mongoose.model("men", Men);
-export default MenSchema;
+const JewellerySchema = mongoose.model("Jewellery", Jewellery);
+export default JewellerySchema;
