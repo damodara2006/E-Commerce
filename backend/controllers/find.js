@@ -5,7 +5,7 @@ const AllData = AsyncHandler(async (req, res) => {
     let data = []
     const alldata = await MenSchema.find({});
     alldata.forEach((list,)=>{
-         data.push(list.header)
+         data.push(list)
     })
     return res.send(data)   
 });

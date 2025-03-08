@@ -1,11 +1,14 @@
-import mongoose from "mongoose"
-import { Schema } from "mongoose"
+import mongoose from "mongoose";
+import { Schema } from "mongoose";
 
 const Men = new Schema({
-    header:{
-        type:String
-    }
-})
+  header: {
+    type: String
+  },
+  url: {
+    type: String
+  }
+});
 
-const MenSchema = mongoose.model("men", Men)
+const MenSchema = mongoose.model("men", Men);
 export default MenSchema;
