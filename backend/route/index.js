@@ -17,7 +17,8 @@ import {
   Shoes,
   Kids,
   Sports,
-  Toys
+  Toys,
+  alldata
 } from "../controllers/find.js";
 
 const router = Router();
@@ -31,7 +32,7 @@ router.route("/6").post(Kidslist);
 router.route("/7").post(Sportslist);
 router.route("/8").post(Toyslist);
 
-
+router.route("/alluser").get(alldata);
 router.route("/alluser/1").get(Men);
 router.route("/alluser/2").get(Women);
 router.route("/alluser/3").get(Electronics);

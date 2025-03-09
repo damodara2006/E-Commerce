@@ -16,6 +16,48 @@ const Men = AsyncHandler(async (req, res) => {
   return res.send(data);
 });
 
+
+const alldata = AsyncHandler(async(req,res)=>{
+  let datas = [];
+  const data1 = await WomenSchema.find({});
+  const data2 = await MenSchema.find({});
+  const data3 = await ElectronicsSchema.find({});
+  const data4 = await JewellerySchema.find({});
+  const data5 = await ShoesSchema.find({});
+  const data6 = await KidsSchema.find({});
+  const data7 = await SportsSchema.find({});
+  const data8 = await ToysSchema.find({});
+
+   data1.forEach(async(data)=>{
+     datas.push(data)
+  })
+
+  data2.forEach(async(data)=>{
+    datas.push(data)
+ })
+ data3.forEach(async(data)=>{
+  datas.push(data)
+})
+data4.forEach(async(data)=>{
+  datas.push(data)
+})
+data5.forEach(async(data)=>{
+  datas.push(data)
+})
+data6.forEach(async(data)=>{
+  datas.push(data)
+})
+data7.forEach(async(data)=>{
+  datas.push(data)
+})
+  
+data8.forEach(async(data)=>{
+  datas.push(data)
+})
+  await res.json(datas)
+
+})
+
 const Women = AsyncHandler(async (req, res) => {
   let data = [];
   const alldata = await WomenSchema.find({});
@@ -79,4 +121,4 @@ const Shoes = AsyncHandler(async (req, res) => {
     return res.send(data);
   });
 
-export { Men, Women, Electronics, Jewellery ,Shoes,Kids , Toys , Sports  };
+export { Men, Women, Electronics, Jewellery ,Shoes,Kids , Toys , Sports ,alldata };

@@ -1,6 +1,6 @@
   import { useState } from "react";
   import axios from "axios";
-
+  import { ToastContainer, toast} from "react-toastify"
   function Admin() {
     let publicId;
     const [name, setname] = useState();
@@ -26,7 +26,6 @@
       );
       const res = await response.json();
       seturl(res.url);
-      console.log(url);
       const image = await fetch(url);
       console.log(image);
       const splitted = url.split("/upload/");
@@ -34,6 +33,7 @@
       const splitted3 = splitted2[0].split("/");
       publicId = splitted3[1];
       console.log(publicId);
+     
     };
 
     const handleheader = () => {
@@ -43,8 +43,8 @@
         .post(`http://localhost:8000/${value}`, { name, url })
         .then((res) => console.log(res));
         setname("")
+        toast.success("Done")
       }
-     
     };
       function handleuser(){
         const para = document.getElementById("text")
@@ -65,6 +65,8 @@
       
       <div className="flex w-screen flex-col justify-center items-center">
 
+        
+      <ToastContainer />
 
         <div className="mt-10">
           <input type="text" value={pass} className=" outline-1 outline-gray-400 pl-2" placeholder="Enter your password" onChange={e=>setpass(e.target.value)} />
