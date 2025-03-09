@@ -8,14 +8,15 @@ import KidsSchema from "../models/kids.js";
 import SportsSchema from "../models/sports.js";
 import ToysSchema from "../models/toys.js";
 const Menlist = AsyncHandler(async (req, res) => {
-  const { name, url } = req.body;
+  const { name, url ,price} = req.body;
 
   if (!name) {
     return res.send("Name required");
   }
   const newMen = new MenSchema({
     name: name,
-    url: url
+    url: url,
+    price:price
   });
 
   await newMen.save();
@@ -100,4 +101,13 @@ const Jewellerylist = AsyncHandler(async (req, res) => {
     res.send(newToy);
   });
 
-export { Menlist, Womenlist, Electronicslist ,Jewellerylist , Toyslist ,Sportslist ,Kidslist, Shoeslist};
+  const cart = AsyncHandler(async(req,res)=>{
+    const {id} = req.body;
+    console.log(id)
+    const cartdata = await MenSchema.findById(id);
+
+    console.log(cartdata)
+    res.send(cartdata)
+  })
+
+export { Menlist, Womenlist, Electronicslist ,Jewellerylist , Toyslist ,Sportslist ,Kidslist, Shoeslist ,cart};
