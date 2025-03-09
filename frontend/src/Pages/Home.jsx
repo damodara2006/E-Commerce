@@ -24,12 +24,10 @@ function Home() {
   ];
 
   useEffect(() => {
-    axios
-      .get("http://localhost:8000/alluser")
-      .then((res) => {
-        setalldata(res.data);
-        setdata(res.data);
-      });
+    axios.get("http://localhost:8000/alluser").then((res) => {
+      setalldata(res.data);
+      setdata(res.data);
+    });
   }, []);
 
   function handleNav() {
@@ -71,7 +69,10 @@ function Home() {
               value={search}
               onChange={(e) => setsearch(e.target.value)}
             />
-            <MdOutlineSearch className="mr-3 cursor-pointer" onClick={handlesearch} />
+            <MdOutlineSearch
+              className="mr-3 cursor-pointer"
+              onClick={handlesearch}
+            />
           </div>
         </div>
         <div className="w-[30%] text-center">Hello</div>
@@ -122,16 +123,25 @@ function Home() {
       </div>
       <div className="px-16 ml-3.5 mt-5 z-0">
         <ul className="flex flex-wrap justify-center gap-10">
-          {data?.map((card, key) => (
-            <li className="border" key={key}>
-              <img
-                src={`${card.url}`}
-                className="w-40 h-56 text-center"
-                alt={card.name}
-              />
-              <p className="text-center">{card.name}</p>
-            </li>
-          ))}
+          {data.length == 0 ? (
+            <p>No Results</p>
+          ) : (
+            data.map((card, key) => (
+              <li className="border" key={key}>
+                {
+                  <>
+                    {" "}
+                    <img
+                      src={`${card.url}`}
+                      className="w-40 h-56 text-center"
+                      alt={card.name}
+                    />
+                    <p className="text-center">{card.name}</p>
+                  </>
+                }
+              </li>
+            ))
+          )}
         </ul>
       </div>
     </div>
