@@ -9,7 +9,7 @@ import SportsSchema from "../models/sports.js";
 import ToysSchema from "../models/toys.js";
 import { cartSchema } from "../models/cart.js";
 const Menlist = AsyncHandler(async (req, res) => {
-  const { name, url ,price} = req.body;
+  const { name, url, price } = req.body;
 
   if (!name) {
     return res.send("Name required");
@@ -17,7 +17,7 @@ const Menlist = AsyncHandler(async (req, res) => {
   const newMen = new MenSchema({
     name: name,
     url: url,
-    price:price
+    price: price
   });
 
   await newMen.save();
@@ -47,98 +47,152 @@ const Electronicslist = AsyncHandler(async (req, res) => {
 });
 
 const Jewellerylist = AsyncHandler(async (req, res) => {
-    const { name, url } = req.body;
-    const newJewellery = new JewellerySchema({
-      name: name,
-      url: url
-    });
-  
-    await newJewellery.save();
-    res.send(newJewellery);
+  const { name, url } = req.body;
+  const newJewellery = new JewellerySchema({
+    name: name,
+    url: url
   });
 
+  await newJewellery.save();
+  res.send(newJewellery);
+});
 
-  const Shoeslist = AsyncHandler(async (req, res) => {
-    const { name, url } = req.body;
-    const newShoe = new ShoesSchema({
-      name: name,
-      url: url
-    });
-  
-    await newShoe.save();
-    res.send(newShoe);
+const Shoeslist = AsyncHandler(async (req, res) => {
+  const { name, url } = req.body;
+  const newShoe = new ShoesSchema({
+    name: name,
+    url: url
   });
 
-  const Kidslist = AsyncHandler(async (req, res) => {
-    const { name, url } = req.body;
-    const newKids = new KidsSchema({
-      name: name,
-      url: url
-    });
-  
-    await newKids.save();
-    res.send(newKids);
+  await newShoe.save();
+  res.send(newShoe);
+});
+
+const Kidslist = AsyncHandler(async (req, res) => {
+  const { name, url } = req.body;
+  const newKids = new KidsSchema({
+    name: name,
+    url: url
   });
 
-  const Sportslist = AsyncHandler(async (req, res) => {
-    const { name, url } = req.body;
-    const newSport = new SportsSchema({
-      name: name,
-      url: url
-    });
-  
-    await newSport.save();
-    res.send(newSport);
+  await newKids.save();
+  res.send(newKids);
+});
+
+const Sportslist = AsyncHandler(async (req, res) => {
+  const { name, url } = req.body;
+  const newSport = new SportsSchema({
+    name: name,
+    url: url
   });
 
-  const Toyslist = AsyncHandler(async (req, res) => {
-    const { name, url } = req.body;
-    const newToy = new ToysSchema({
-      name: name,
-      url: url
-    });
-  
-    await newToy.save();
-    res.send(newToy);
+  await newSport.save();
+  res.send(newSport);
+});
+
+const Toyslist = AsyncHandler(async (req, res) => {
+  const { name, url } = req.body;
+  const newToy = new ToysSchema({
+    name: name,
+    url: url
   });
 
-  const cart = AsyncHandler(async(req,res)=>{
-    const {id} = req.body;
-    const cartdata = await MenSchema.findById(id);
+  await newToy.save();
+  res.send(newToy);
+});
 
-    const newCart = new cartSchema({
-      id:id
-    })
+const cart = AsyncHandler(async (req, res) => {
+  const { id } = req.body;
 
-    await newCart.save()
-    return res.send(newCart)
-  })
+  const newCart = new cartSchema({
+    id: id
+  });
 
-  const allcart = AsyncHandler(async(req,res)=>{
-    const data = await cartSchema.find({})
-    res.send(data)
-  })
+  await newCart.save();
+  return res.send(newCart);
+});
 
-  const allcarts = AsyncHandler(async(req,res)=>{
+const allcart = AsyncHandler(async (req, res) => {
+  const data = await cartSchema.find({});
+  res.send(data);
+});
 
-    const {array} = req.body;
-    let data = [];
-     for(let element of array){
-      let items = await MenSchema.findById(element.id)
-    data.push(items)     }
+const allcarts = AsyncHandler(async (req, res) => {
+  const { array } = req.body;
 
-    await res.json(data)
-    });
+  let men = MenSchema;
+  let women = WomenSchema;
+  let data = [];
+  for (let element of array) {
+    let items = await men.findById(element.id);
+    if (items) {
+      data.push(items);
+    }
+  }
+  for (let element of array) {
+    let items = await women.findById(element.id);
+    if (items) {
+      data.push(items);
+    }
+  }
+  for (let element of array) {
+    let items = await ElectronicsSchema.findById(element.id);
+    if (items) {
+      data.push(items);
+    }
+  }
+  for (let element of array) {
+    let items = await JewellerySchema.findById(element.id);
+    if (items) {
+      data.push(items);
+    }
+  }
+  for (let element of array) {
+    let items = await ShoesSchema.findById(element.id);
+    if (items) {
+      data.push(items);
+    }
+  }
+  for (let element of array) {
+    let items = await KidsSchema.findById(element.id);
+    if (items) {
+      data.push(items);
+    }
+  }
+  for (let element of array) {
+    let items = await SportsSchema.findById(element.id);
+    if (items) {
+      data.push(items);
+    }
+  }
+  for (let element of array) {
+    let items = await ToysSchema.findById(element.id);
+    if (items) {
+      data.push(items);
+    }
+  }
+  await res.json(data);
+});
 
+const cartdlt = AsyncHandler(async (req, res) => {
+  const { id } = req.body;
 
-    const cartdlt = AsyncHandler(async(req,res)=>{
-      const{id} = req.body;
-      
-      const men = await cartSchema.deleteOne({id:id})
+  const men = await cartSchema.deleteOne({ id: id });
 
-      await res.send(men)
-      });
+  await res.send(men);
+});
 
-
-
-export { Menlist, Womenlist, Electronicslist ,Jewellerylist , Toyslist ,Sportslist ,Kidslist, Shoeslist ,cart, allcart,allcarts ,cartdlt};
+export {
+  Menlist,
+  Womenlist,
+  Electronicslist,
+  Jewellerylist,
+  Toyslist,
+  Sportslist,
+  Kidslist,
+  Shoeslist,
+  cart,
+  allcart,
+  allcarts,
+  cartdlt
+};

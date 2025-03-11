@@ -11,6 +11,7 @@ import Kids from "./Pages/Kids.jsx";
 import Jewellery from "./Pages/Jewellery.jsx";
 import Electronics from "./Pages/Electronics.jsx";
 import Cart from "./Pages/Cart.jsx";
+import Nope from "./Pages/nope.jsx";
 function App() {
   return (
     <BrowserRouter>
@@ -26,6 +27,7 @@ function App() {
         <Route path="/jewellery" element={<Jewellery/>}/>
         <Route path="/electronics" element={<Electronics/>}/>
         <Route path="/cart" element={<Cart/>}/>
+        <Route path="/nope" element={<Nope/>}/>
 
       </Routes>
     </BrowserRouter>
