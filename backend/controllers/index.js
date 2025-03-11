@@ -7,6 +7,7 @@ import ShoesSchema from "../models/shoes.js";
 import KidsSchema from "../models/kids.js";
 import SportsSchema from "../models/sports.js";
 import ToysSchema from "../models/toys.js";
+import { cartSchema } from "../models/cart.js";
 const Menlist = AsyncHandler(async (req, res) => {
   const { name, url ,price} = req.body;
 
@@ -103,11 +104,41 @@ const Jewellerylist = AsyncHandler(async (req, res) => {
 
   const cart = AsyncHandler(async(req,res)=>{
     const {id} = req.body;
-    console.log(id)
     const cartdata = await MenSchema.findById(id);
 
-    console.log(cartdata)
-    res.send(cartdata)
+    const newCart = new cartSchema({
+      id:id
+    })
+
+    await newCart.save()
+    return res.send(newCart)
   })
 
-export { Menlist, Womenlist, Electronicslist ,Jewellerylist , Toyslist ,Sportslist ,Kidslist, Shoeslist ,cart};
+  const allcart = AsyncHandler(async(req,res)=>{
+    const data = await cartSchema.find({})
+    res.send(data)
+  })
+
+  const allcarts = AsyncHandler(async(req,res)=>{
+
+    const {array} = req.body;
+    let data = [];
+     for(let element of array){
+      let items = await MenSchema.findById(element.id)
+    data.push(items)     }
+
+    await res.json(data)
+    });
+
+
+    const cartdlt = AsyncHandler(async(req,res)=>{
+      const{id} = req.body;
+      
+      const men = await cartSchema.deleteOne({id:id})
+
+      await res.send(men)
+      });
+
+
+
+export { Menlist, Womenlist, Electronicslist ,Jewellerylist , Toyslist ,Sportslist ,Kidslist, Shoeslist ,cart, allcart,allcarts ,cartdlt};

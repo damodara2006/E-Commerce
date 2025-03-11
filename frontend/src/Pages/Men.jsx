@@ -16,10 +16,8 @@ function Men() {
   }, []);
 
   const handlecart = async(card) => {
-    console.log(card.name)
-    setid(card._id)
     axios
-      .post("http://localhost:8000/cart", { id })
+      .post("http://localhost:8000/cart", { id:card._id })
       .then((res) => console.log(res));
   };
   return (

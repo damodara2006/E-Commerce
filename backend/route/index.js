@@ -8,7 +8,10 @@ import {
   Kidslist,
   Sportslist,
   Toyslist,
-  cart
+  cart,
+  allcart,
+  allcarts,
+  cartdlt
 } from "../controllers/index.js";
 import {
   Men,
@@ -43,6 +46,11 @@ router.route("/alluser/5").get(Shoes);
 router.route("/alluser/6").get(Kids);
 router.route("/alluser/7").get(Sports);
 router.route("/alluser/8").get(Toys);
+router.route("/allcart").post(allcart)
+router.route("/allcarts").post(allcarts)
+router.route("/cartdlt").post(cartdlt)
+
+
 
 
 
