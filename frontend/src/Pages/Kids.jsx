@@ -40,7 +40,7 @@ function Men() {
                   src={card.url}
                   alt=""
                 />
-                <p className=" absolute bottom-0">Price: {card?.price}</p>
+                <p className=" absolute bottom-0">Price: ₹{card?.price}</p>
                 <button key={key} 
                 onMouseEnter={() => setid(card._id)}
                   className="absolute px-2 opacity-100 group-hover:opacity-100 rounded-md bottom-14 bg-gradient-to-tl from-red-600 to-orange-400 hover:bg-gradient-to-tl hover:from-red-700 hover:to-orange-500 transition-all duration-1000 text-sm cursor-pointer"

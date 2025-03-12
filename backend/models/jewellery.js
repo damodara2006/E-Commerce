@@ -7,6 +7,10 @@ const Jewellery = new Schema({
   },
   url: {
     type: String
+  },
+  price:{
+    type:Number,
+    default:0
   }
 });
 

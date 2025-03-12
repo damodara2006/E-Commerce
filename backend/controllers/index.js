@@ -25,10 +25,11 @@ const Menlist = AsyncHandler(async (req, res) => {
 });
 
 const Womenlist = AsyncHandler(async (req, res) => {
-  const { name, url } = req.body;
+  const { name, url, price } = req.body;
   const newWomen = new WomenSchema({
     name: name,
-    url: url
+    url: url,
+    price: price
   });
 
   await newWomen.save();
@@ -36,10 +37,11 @@ const Womenlist = AsyncHandler(async (req, res) => {
 });
 
 const Electronicslist = AsyncHandler(async (req, res) => {
-  const { name, url } = req.body;
+  const { name, url, price } = req.body;
   const newElectornics = new ElectronicsSchema({
     name: name,
-    url: url
+    url: url,
+    price: price
   });
 
   await newElectornics.save();
@@ -47,10 +49,11 @@ const Electronicslist = AsyncHandler(async (req, res) => {
 });
 
 const Jewellerylist = AsyncHandler(async (req, res) => {
-  const { name, url } = req.body;
+  const { name, url, price } = req.body;
   const newJewellery = new JewellerySchema({
     name: name,
-    url: url
+    url: url,
+    price: price
   });
 
   await newJewellery.save();
@@ -58,10 +61,12 @@ const Jewellerylist = AsyncHandler(async (req, res) => {
 });
 
 const Shoeslist = AsyncHandler(async (req, res) => {
-  const { name, url } = req.body;
+  const { name, url, price } = req.body;
+
   const newShoe = new ShoesSchema({
     name: name,
-    url: url
+    url: url,
+    price: price
   });
 
   await newShoe.save();
@@ -69,10 +74,12 @@ const Shoeslist = AsyncHandler(async (req, res) => {
 });
 
 const Kidslist = AsyncHandler(async (req, res) => {
-  const { name, url } = req.body;
+  const { name, url, price } = req.body;
+
   const newKids = new KidsSchema({
     name: name,
-    url: url
+    url: url,
+    price: price
   });
 
   await newKids.save();
@@ -80,10 +87,12 @@ const Kidslist = AsyncHandler(async (req, res) => {
 });
 
 const Sportslist = AsyncHandler(async (req, res) => {
-  const { name, url } = req.body;
+  const { name, url, price } = req.body;
+
   const newSport = new SportsSchema({
     name: name,
-    url: url
+    url: url,
+    price: price
   });
 
   await newSport.save();
@@ -91,10 +100,12 @@ const Sportslist = AsyncHandler(async (req, res) => {
 });
 
 const Toyslist = AsyncHandler(async (req, res) => {
-  const { name, url } = req.body;
+  const { name, url, price } = req.body;
+
   const newToy = new ToysSchema({
     name: name,
-    url: url
+    url: url,
+    price: price
   });
 
   await newToy.save();

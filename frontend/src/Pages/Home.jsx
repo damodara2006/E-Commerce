@@ -137,7 +137,7 @@ function Home() {
                       alt={card.name}
                     />
                     <p className="text-center">{card.name}</p>
-                    <p className="text-center">Price: {card.price? card.price : 0}</p>
+                    <p className="text-center">Price: ₹{card.price? card.price : 0}</p>
 
                   </>
                 }

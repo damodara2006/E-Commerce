@@ -7,7 +7,11 @@ const women = new Schema({
     },
     url:{
         type:String
-    }
+    },
+    price:{
+        type:Number,
+        default:0
+      }
 })
 
 const WomenSchema = mongoose.model("women",women)

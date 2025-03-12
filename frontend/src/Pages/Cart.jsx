@@ -8,11 +8,12 @@ function Cart() {
   const [arrays, setarrays] = useState([]);
   let [newarray, setnewarray] = useState([]);
   const [Loading, setLoading] = useState(true);
+  const [price ,setprice] = useState(0)
   useEffect(() => {
     axios.post("http://localhost:8000/allcart").then((res) => {
       setarray(res.data);
     });
-  });
+  },[]);
 
   useEffect(() => {
     axios
@@ -33,20 +34,26 @@ function Cart() {
     }
   };
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 2500);
-
-    return () => clearTimeout(timer);
-  });
+ 
 
   toast.success("Deleted");
 
+
+  useEffect(()=>{
+    arrays.map((item)=>{
+      setprice( (prev)=> prev + Number(item.price))
+  })
+  },[arrays])
+   
+ 
   return (
     <div className="w-screen h-screen ">
-      {console.log(arrays.length)}
-      
+
+      <div className="w-full h-10 border flex items-center justify-center bg-gradient-to-l from-gray-100 to-gray-500">
+        <p className="pl-7 font-mono ">Total price: </p>
+        <p className="text-red-400 font-mono">{`   ${ price}`}</p>
+        <button className=" border px-2 rounded-sm hover:bg-gray-400 transition-all absolute right-10">Buy</button>
+      </div>
       {arrays.length == 0 ? (
         <div className="flex w-screen h-screen justify-center items-center" >
           <InfinitySpin
@@ -84,7 +91,7 @@ function Cart() {
                           className="w-[40] py-3 h-40 text-center "
                           alt=""
                         />
-                        <p className="text-center h-full w-[22%] ">
+                        <p className="text-center h-full w-[22%] text-red-500 ">
                           Price: {item.price ? item.price : "0"}
                         </p>
                         <p className="text-center h-full w-[22%]  ">
@@ -113,7 +120,7 @@ function Cart() {
                           alt=""
                         />
                         <p className="text-center h-full w-[22%] ">
-                          Price: {item.price ? item.price : "0"}
+                         <span className="text-red-600">Price:</span>  {item.price ? <span className="text-green-700 ">₹{item.price}</span> : "0"}
                         </p>
                         <p className="text-center h-full w-[22%]  ">
                           {item.name}
