@@ -127,13 +127,13 @@ function Home() {
             <p>No Results</p>
           ) : (
             data.map((card, key) => (
-              <li className="border" key={key}>
+              <li className="border rounded-md" key={key}>
                 {
                   <>
                     {" "}
                     <img
                       src={`${card.url}`}
-                      className="w-40 h-56 text-center"
+                      className="w-40 h-56 text-center rounded-md"
                       alt={card.name}
                     />
                     <p className="text-center">{card.name}</p>
