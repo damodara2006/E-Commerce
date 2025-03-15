@@ -13,6 +13,7 @@ import Electronics from "./Pages/Electronics.jsx";
 import Cart from "./Pages/Cart.jsx";
 import Nope from "./Pages/nope.jsx";
 import Product from "./Pages/Product.jsx";
+import Buy from "./Pages/Buy.jsx";
 function App() {
   return (
     <BrowserRouter>
@@ -30,6 +31,7 @@ function App() {
         <Route path="/cart" element={<Cart />} />
         <Route path="/nope" element={<Nope />} />
         <Route path="/product" element={<Product />} />
+        <Route path="/buy" element={<Buy/>} />
       </Routes>
     </BrowserRouter>
   );

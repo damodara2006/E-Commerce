@@ -10,6 +10,9 @@ function Product() {
     axios
       .post("http://localhost:8000/cart", { id: card.card._id })
   };
+  const handlebuy = (card)=>{
+    navigate("/buy" ,{state:{card}})
+  }
   return (
     <div className="w-screen h-screen">
       <FaShoppingCart
@@ -34,7 +37,7 @@ function Product() {
       </div>
 
       <div className="fixed bottom-0 flex w-screen justify-evenly border h-[5%]">
-        <button className="w-[50%] bg-orange-400 font-montserrat text-2xl" >BUY NOW</button>
+        <button className="w-[50%] bg-orange-400 font-montserrat text-2xl" onClick={()=>handlebuy(card)} >BUY NOW</button>
         <button className="w-[50%] font-montserrat text-2xl" onClick={()=>handlecart(card)} >ADD TO CART</button>
       </div>
     </div>
