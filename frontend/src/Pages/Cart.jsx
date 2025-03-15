@@ -56,7 +56,7 @@ function Cart() {
 
       <div className="w-full h-10 border flex items-center justify-center bg-gradient-to-l from-gray-100 to-gray-500">
         <p className="pl-7 font-mono ">Total price: </p>
-        <p className="text-red-400 font-mono">{`   ${ price}`}</p>
+        <p className="text-red-400 font-mono">{`   ₹${ price}`}</p>
         <button className=" border px-2 rounded-sm hover:bg-gray-400 transition-all absolute right-10" onClick={()=>handlebuy(arrays)}>Buy</button>
       </div>
       {arrays.length == 0 ? (

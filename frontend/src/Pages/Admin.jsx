@@ -1,18 +1,19 @@
 import { useState } from "react";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
+import dotenv from "dotenv"
+// import env from "/home/pdp28/Projects/E-Commerce-Website/E-Commerce/frontend/.env"
+import { Meta } from "react-router-dom";
 function Admin() {
-  let publicId;
+  let password = import.meta.env.VITE_SOME_PASSWORD;
   const [name, setname] = useState();
   const [value, setvalu] = useState(1);
   const [url, seturl] = useState();
   const [pass, setpass] = useState();
   const [access, setaccess] = useState(false);
   const [price, setprice] = useState();
-  const password = "999428";
   const handlefiles = async (e) => {
     let file = e.target.files[0];
-
     const data = new FormData();
     data.append("file", file);
     data.append("upload_preset", "admin_e-commerce");
