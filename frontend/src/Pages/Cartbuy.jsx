@@ -11,7 +11,7 @@ function Cartbuy() {
     
     const handlebuy = ()=>{
 
-        (card[0].card).map((item)=>(
+        (card[0].card).map((item)=>( 
             toast.success(`${item.name} Ordered`)
         ))
       
