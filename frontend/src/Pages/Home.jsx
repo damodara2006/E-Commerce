@@ -99,12 +99,12 @@ function Home() {
             )}
             CATEGORY
           </div>
-          <ul className="flex font-semibold justify-evenly w-[50%]">
-            <li>HOME</li>
-            <li>SHOP</li>
-            <li>FEATURES</li>
-            <li>PAGES</li>
-            <li>BLOG</li>
+          <ul className="flex font-semibold justify-evenly w-[50%] ">
+            <li className="cursor-pointer" >HOME</li>
+            <li className="cursor-pointer" onClick={handleNav}>SHOP</li>
+            <li className="cursor-pointer" >FEATURES</li>
+            <li className="cursor-pointer" >PAGES</li>
+            <li className="cursor-pointer" >BLOG</li>
           </ul>
         </nav>
       </div>

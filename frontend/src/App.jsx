@@ -14,6 +14,7 @@ import Cart from "./Pages/Cart.jsx";
 import Nope from "./Pages/nope.jsx";
 import Product from "./Pages/Product.jsx";
 import Buy from "./Pages/Buy.jsx";
+import Cartbuy from "./Pages/Cartbuy.jsx";
 function App() {
   return (
     <BrowserRouter>
@@ -32,6 +33,8 @@ function App() {
         <Route path="/nope" element={<Nope />} />
         <Route path="/product" element={<Product />} />
         <Route path="/buy" element={<Buy/>} />
+        <Route path="/cartbuy" element={<Cartbuy/>} />
+
       </Routes>
     </BrowserRouter>
   );

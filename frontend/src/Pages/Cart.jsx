@@ -3,12 +3,14 @@ import React, { useEffect, useState } from "react";
 import { FaRegTrashAlt } from "react-icons/fa";
 import { ToastContainer, toast } from "react-toastify";
 import { InfinitySpin } from "react-loader-spinner";
+import { useNavigate } from "react-router-dom";
 function Cart() {
   const [array, setarray] = useState([]);
   const [arrays, setarrays] = useState([]);
   let [newarray, setnewarray] = useState([]);
   const [Loading, setLoading] = useState(true);
   const [price ,setprice] = useState(0)
+  const navigate = useNavigate();
   useEffect(() => {
     axios.post("http://localhost:8000/allcart").then((res) => {
       setarray(res.data);
@@ -34,7 +36,8 @@ function Cart() {
     }
   };
 
- 
+
+  
 
   toast.success("Deleted");
 
@@ -43,16 +46,18 @@ function Cart() {
     arrays.map((item)=>{
       setprice( (prev)=> prev + Number(item.price))
   })
-  },[arrays])
-   
- 
+  },[arrays ,array])
+
+  const handlebuy = (card)=>{
+    navigate("/cartbuy" ,{state:{card :card , price : price}})
+  }
   return (
     <div className="w-screen h-screen ">
 
       <div className="w-full h-10 border flex items-center justify-center bg-gradient-to-l from-gray-100 to-gray-500">
         <p className="pl-7 font-mono ">Total price: </p>
         <p className="text-red-400 font-mono">{`   ${ price}`}</p>
-        <button className=" border px-2 rounded-sm hover:bg-gray-400 transition-all absolute right-10">Buy</button>
+        <button className=" border px-2 rounded-sm hover:bg-gray-400 transition-all absolute right-10" onClick={()=>handlebuy(arrays)}>Buy</button>
       </div>
       {arrays.length == 0 ? (
         <div className="flex w-screen h-screen justify-center items-center" >
@@ -88,7 +93,7 @@ function Cart() {
                       >
                         <img
                           src={item.url}
-                          className="w-40 py-3 h-40 text-center "
+                          className="w-32 py-3 h-40 text-center "
                           alt=""
                         />
                         <p className="text-center h-full w-[22%] ">
@@ -116,7 +121,7 @@ function Cart() {
                       >
                         <img
                           src={item.url}
-                          className="w-40 py-3 h-40 text-center "
+                          className="w-32 py-3 h-40 text-center "
                           alt=""
                         />
                         <p className="text-center h-full w-[22%] ">
