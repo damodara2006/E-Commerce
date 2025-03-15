@@ -3,6 +3,7 @@ import { LuTableOfContents } from "react-icons/lu";
 import { MdOutlineSearch } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import product from "./Product";
 
 function Home() {
   const navigate = useNavigate();
@@ -56,6 +57,9 @@ function Home() {
     setsearching(false);
   }
 
+  const handleproduct = (card) => {
+    navigate("/product", { state: { card } });
+  };
   return (
     <div className="text-black w-screen relative overflow-hidden">
       <div className="w-full h-12 flex flex-row justify-between items-center">
@@ -127,7 +131,11 @@ function Home() {
             <p>No Results</p>
           ) : (
             data.map((card, key) => (
-              <li className="border rounded-md" key={key}>
+              <li
+                className="border rounded-md"
+                onClick={() => handleproduct(card)}
+                key={key}
+              >
                 {
                   <>
                     {" "}
@@ -137,8 +145,9 @@ function Home() {
                       alt={card.name}
                     />
                     <p className="text-center">{card.name}</p>
-                    <p className="text-center">Price: ₹{card.price? card.price : 0}</p>
-
+                    <p className="text-center">
+                      Price: ₹{card.price ? card.price : 0}
+                    </p>
                   </>
                 }
               </li>

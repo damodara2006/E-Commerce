@@ -88,11 +88,11 @@ function Cart() {
                       >
                         <img
                           src={item.url}
-                          className="w-[40] py-3 h-40 text-center "
+                          className="w-40 py-3 h-40 text-center "
                           alt=""
                         />
-                        <p className="text-center h-full w-[22%] text-red-500 ">
-                          Price: {item.price ? item.price : "0"}
+                        <p className="text-center h-full w-[22%] ">
+                         <span className="text-red-600">Price:</span>  {item.price ? <span className="text-green-700 ">₹{item.price}</span> : "0"}
                         </p>
                         <p className="text-center h-full w-[22%]  ">
                           {item.name}
@@ -116,7 +116,7 @@ function Cart() {
                       >
                         <img
                           src={item.url}
-                          className="w-[40] py-3 h-40 text-center "
+                          className="w-40 py-3 h-40 text-center "
                           alt=""
                         />
                         <p className="text-center h-full w-[22%] ">

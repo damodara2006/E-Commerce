@@ -28,19 +28,16 @@ function Admin() {
     const res = await response.json();
     seturl(res.url);
     const image = await fetch(url);
-    console.log(image);
     const splitted = url.split("/upload/");
     const splitted2 = splitted[1].split(".");
     const splitted3 = splitted2[0].split("/");
     publicId = splitted3[1];
-    console.log(publicId);
   };
 
   const handleheader = () => {
     if (name && url && price) {
       axios
         .post(`http://localhost:8000/${value}`, { name, url, price })
-        .then((res) => console.log(res));
       setname("");
       toast.success("Done");
     }

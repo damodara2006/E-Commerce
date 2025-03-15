@@ -11,14 +11,12 @@ function Men() {
   useEffect(() => {
     axios.get("http://localhost:8000/alluser/5").then((res) => {
       setdata(res.data);
-      console.log(res.data);
     });
   }, []);
 
   const handlecart = async(card) => {
     axios
       .post("http://localhost:8000/cart", { id:card._id })
-      .then((res) => console.log(res));
   };
   return (
     <div>
