@@ -19,6 +19,10 @@ function Men() {
     axios
       .post("http://localhost:8000/cart", { id: card._id, num })
   };
+
+  const handleproduct = (card) => {
+    navigate("/product", { state: { card } });
+  };
   return (
     <div>
       <FaShoppingCart
@@ -29,7 +33,7 @@ function Men() {
         {
           <ul className="   flex flex-wrap gap-1 gap-y-2 w-screen justify-evenly mt-20 items-center px-36">
             {data.map((card, key) => (
-              <li
+              <li  onClick={() => handleproduct(card)}
                 className=" group relative min-w-[150px] h-[250px] border rounded-md justify-center flex items-center bottom-0"
                 key={key}
               >

@@ -8,15 +8,20 @@ function Men() {
   const [data, setdata] = useState([]);
   const [id, setid] = useState();
   const navigate = useNavigate();
+  const num = 1;
   useEffect(() => {
     axios.get("http://localhost:8000/alluser/2").then((res) => {
       setdata(res.data);
     });
   }, []);
 
-  const handlecart = async(card) => {
+  const handlecart = async (card) => {
     axios
-      .post("http://localhost:8000/cart", { id:card._id })
+      .post("http://localhost:8000/cart", { id: card._id, num })
+  };
+
+  const handleproduct = (card) => {
+    navigate("/product", { state: { card } });
   };
   return (
     <div>
@@ -28,7 +33,7 @@ function Men() {
         {
           <ul className="   flex flex-wrap gap-1 gap-y-2 w-screen justify-evenly mt-20 items-center px-36">
             {data.map((card, key) => (
-              <li
+              <li  onClick={() => handleproduct(card)}
                 className=" group relative min-w-[150px] h-[250px] border rounded-md justify-center flex items-center bottom-0"
                 key={key}
               >
@@ -39,8 +44,9 @@ function Men() {
                   alt=""
                 />
                 <p className=" absolute bottom-0">Price: ₹{card?.price}</p>
-                <button key={key} 
-                onMouseEnter={() => setid(card._id)}
+                <button
+                  key={key}
+                  onMouseEnter={() => setid(card._id)}
                   className="absolute px-2 opacity-100 group-hover:opacity-100 rounded-md bottom-14 bg-gradient-to-tl from-red-600 to-orange-400 hover:bg-gradient-to-tl hover:from-red-700 hover:to-orange-500 transition-all duration-1000 text-sm cursor-pointer"
                   onClick={() => handlecart(card)}
                 >
