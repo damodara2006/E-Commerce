@@ -6,7 +6,6 @@ function Cartbuy() {
     let card = [];
     let price = location.state.price
     card.push(location.state)
-    console.log(card[0].card)
     const[buy,setbuy] = useState(500)
     
     const handlebuy = ()=>{
@@ -18,7 +17,6 @@ function Cartbuy() {
       setbuy(500)
     }
    
-    console.log((card[0].card).map((item )=>(console.log(item))))
   return (
     <div className=' w-screen z-0'>
       <ToastContainer/>
@@ -29,9 +27,10 @@ function Cartbuy() {
       ))}</ul>
 
       <div className='mt-24' >
-      <p className='text-center -mt-16 mb-10 text-3xl font-emblema'>Total price :  <span className='font-emblema text-green-600' > ₹{Intl.NumberFormat({
+      <p className='text-center -mt-16 mb-10 text-3xl font-emblema'>Total price :  <span className='font-emblema text-green-600' > {Intl.NumberFormat('en-IN',{
        style:'currency',
-        currency:'INR'
+        currency:'INR',
+        minimumFractionDigits:0
       }).format(price)}</span></p>
 
 <div className='w-full flex  items-center  h-24 flex-col overflow-hidden relative transition-all duration-200'>

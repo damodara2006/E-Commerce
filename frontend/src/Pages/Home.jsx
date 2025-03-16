@@ -3,6 +3,9 @@ import { LuTableOfContents } from "react-icons/lu";
 import { MdOutlineSearch } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { IoMdMail } from "react-icons/io";
+import { FaInstagram } from "react-icons/fa";
+import { IoCallSharp } from "react-icons/io5";
 import product from "./Product";
 
 function Home() {
@@ -65,11 +68,11 @@ function Home() {
   
 
   return (
-    <div className="text-black w-screen relative overflow-hidden">
-      <div className="w-full h-12 flex flex-row justify-between items-center">
-        <div className="w-[30%] text-center">Hello</div>
+    <div className="text-black w-screen h-full  overflow-hidden bg-gray-300 relative overflow-hidden ">
+      <div className="w-full h-12 flex flex-row justify-between items-center bg-orange-400  ">
+        <div className=" text-center font-bold ml-[4%] flex ">ＣＬＯＵＤＨＵＴ</div>
         <div className="w-[40%]">
-          <div className="flex items-center outline-1 focus-within:bg-gray-200 outline-gray-100 transition-all duration-100 rounded-2xl">
+          <div className="flex items-center outline-1 focus-within:bg-gray-200 outline-gray-100 transition-all duration-100 rounded-2xl relative">
             <input
               type="text"
               className="rounded-xl placeholder:text-[10px] placeholder:font-mono pl-7 text-[10px] p-1.5 w-[100%] outline-0 font-mono"
@@ -83,9 +86,14 @@ function Home() {
             />
           </div>
         </div>
-        <div className="w-[30%] text-center">Hello</div>
+        <div className="w-[30%] text-center flex justify-evenly">
+        <a href="mailto:damodara2006@gmail.com"><IoMdMail /></a>
+        <a href="https://www.instagram.com/its_me_pdp28/"><FaInstagram  /> </a>
+        <a href="tel:9043402788"><IoCallSharp /></a>
+       
+        </div>
       </div>
-      <div className="w-full border border-gray-200 relative mb-3">
+      <div className="w-full border border-gray-200 relative mb-3 bg-gradient-to-r from-gray-600 to-gray-400">
         <nav className="flex p-1.5 relative justify-between">
           <div className="flex items-center w-[20%] justify-evenly">
             {nav === 2 / 3 ? (
@@ -98,18 +106,22 @@ function Home() {
             ) : (
               <LuTableOfContents
                 onClick={handleNav}
-                className="transition-all duration-500 cursor-pointer"
+                className="transition-all duration-500 cursor-pointer "
               />
             )}
-            CATEGORY
+           
           </div>
-          <ul className="flex font-semibold justify-evenly w-[50%] ">
-            <li className="cursor-pointer" >HOME</li>
-            <li className="cursor-pointer" onClick={handleNav}>SHOP</li>
-            <li className="cursor-pointer" >FEATURES</li>
-            <li className="cursor-pointer" >PAGES</li>
-            <li className="cursor-pointer" >BLOG</li>
+          <div className="flex  w-[40%]"> CATEGORY</div>
+        
+          <ul className="flex font-semibold justify-evenly flex-row sm:w-[50%] md:w-[50%] lg:w-[50%] w-[0%] xl:w-[50%] shrink ">
+            <li className="cursor-pointer text-sm hidden sm:block lg:block xl:block md:block" >HOME</li>
+            <li className="cursor-pointer text-sm hidden sm:block lg:block xl:block md:block" onClick={handleNav}>SHOP</li>
+            <li className="cursor-pointer text-sm hidden sm:block lg:block xl:block md:block" >FEATURES</li>
+            <li className="cursor-pointer text-sm hidden sm:block lg:block xl:block md:block" >PAGES</li>
+            <li className="cursor-pointer text-sm hidden sm:block lg:block xl:block md:block" >BLOG</li>
           </ul>
+         
+         
         </nav>
       </div>
       <div className="relative w-full justify-center flex px-[5%] h-fit z-50">
@@ -128,15 +140,15 @@ function Home() {
           ))}
         </ul>
         <div className="w-[100%] ml-2.5"></div>
-      </div>
-      <div className="px-16 ml-3.5 mt-5 z-0">
+      </div >
+      <div className="px-16 ml-3.5 z-0 ">
         <ul className="flex flex-wrap justify-center gap-10">
           {data.length == 0 ? (
             <p>No Results</p>
           ) : (
             data.map((card, key) => (
               <li
-                className="border rounded-md"
+                className="border rounded-md bg-white"
                 onClick={() => handleproduct(card)}
                 key={key}
               >
