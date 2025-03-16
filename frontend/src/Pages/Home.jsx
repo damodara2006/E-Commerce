@@ -6,6 +6,7 @@ import axios from "axios";
 import { IoMdMail } from "react-icons/io";
 import { FaInstagram } from "react-icons/fa";
 import { IoCallSharp } from "react-icons/io5";
+import { FaShoppingCart } from "react-icons/fa";
 import product from "./Product";
 
 function Home() {
