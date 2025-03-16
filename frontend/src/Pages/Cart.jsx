@@ -25,7 +25,6 @@ function Cart() {
 
   const handlearray = (item, key) => {
     axios.post("https://e-commerce-3-7nwk.onrender.com/cartdlt", { id: item._id });
-    toast.success("Deleted");
 
     if (newarray.length == 0) {
       newarray = arrays.filter((item, keys) => keys !== key);
