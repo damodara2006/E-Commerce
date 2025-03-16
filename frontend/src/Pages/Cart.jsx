@@ -59,7 +59,7 @@ function Cart() {
     <div className="w-screen h-screen ">
 
       <div className="w-full h-10 border flex items-center justify-center bg-gradient-to-l from-gray-100 to-gray-500">
-        <p className="pl-7 font-mono ">Total price: </p>
+        <p className=" font-mono ">Total price: </p>
         <p className="text-red-400 font-mono">{`   ₹${Intl.NumberFormat('en-IN', {
      currency:'INR',
      maximumFractionDigits:0
