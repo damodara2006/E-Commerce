@@ -28,7 +28,7 @@ function Home() {
   ];
 
   useEffect(() => {
-    axios.get("http://localhost:8000/alluser").then((res) => {
+    axios.get("https://e-commerce-3-7nwk.onrender.com/alluser").then((res) => {
       setalldata(res.data);
       setdata(res.data);
     });
