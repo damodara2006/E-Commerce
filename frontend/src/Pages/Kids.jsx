@@ -26,7 +26,7 @@ function Men() {
   return (
     <div>
       <FaShoppingCart
-        className=" right-10 absolute top-7 hover:text-gray-400 transition-all"
+        className=" right-10 absolute top-7 text-3xl hover:text-gray-400 transition-all"
         onClick={() => navigate("/cart")}
       />
       <div>
