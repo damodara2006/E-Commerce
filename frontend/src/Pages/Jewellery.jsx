@@ -31,7 +31,7 @@ function Men() {
       />
       <div>
         {
-          <ul className="  flex flex-wrap gap-1 gap-y-2 w-screen justify-evenly mt-20 items-center px-36">
+          <ul className="  flex flex-wrap gap-1 gap-y-2 w-screen justify-evenly mt-10 items-center px-10">
             {data.map((card, key) => (
               <li  onClick={() => handleproduct(card)}
                 className=" z-0 group relative min-w-[150px] h-[250px] border rounded-md  justify-center flex items-center bottom-0"
