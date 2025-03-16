@@ -26,15 +26,15 @@ function Men() {
   return (
     <div>
       <FaShoppingCart
-        className=" right-10 absolute top-10 hover:text-gray-400 transition-all"
+        className=" right-10 absolute top-7 hover:text-gray-400 transition-all"
         onClick={() => navigate("/cart")}
       />
       <div>
         {
-          <ul className="   flex flex-wrap gap-1 gap-y-2 w-screen justify-evenly mt-20 items-center px-36">
+          <ul className="  flex flex-wrap gap-1 gap-y-2 w-screen justify-evenly mt-15 items-center">
             {data.map((card, key) => (
               <li  onClick={() => handleproduct(card)}
-                className=" z-0 group relative min-w-[150px] h-[250px] border rounded-md justify-center flex items-center bottom-0"
+                className=" z-0 group relative min-w-[150px] h-[250px] border rounded-md  justify-center flex items-center bottom-0"
                 key={key}
               >
                 <p className=" absolute bottom-5">{card.name}</p>
@@ -51,7 +51,7 @@ function Men() {
                 <button
                   key={key}
                   onMouseEnter={() => setid(card._id)}
-                  className="  absolute px-2 opacity-100 group-hover:opacity-100 rounded-md bottom-14 bg-gradient-to-tl from-red-600 to-orange-400 hover:bg-gradient-to-tl hover:from-red-700 hover:to-orange-500 transition-all duration-1000 text-sm cursor-pointer"
+                  className="absolute px-2 opacity-100 group-hover:opacity-100 rounded-md bottom-14 bg-gradient-to-tl from-red-600 to-orange-400 hover:bg-gradient-to-tl hover:from-red-700 hover:to-orange-500 transition-all duration-1000 text-sm cursor-pointer z-50"
                   onClick={() => handlecart(card)}
                 >
                   Add to cart
