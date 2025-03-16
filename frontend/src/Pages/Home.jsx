@@ -69,6 +69,13 @@ function Home() {
 
   return (
     <div className="text-black w-screen h-full   bg-gray-300 relative overflow-hidden ">
+      <div>
+            <FaShoppingCart
+              className=" absolute top-7 hover:text-gray-400 text-3xl bottom-10 right-10 transition-all"
+              onClick={() => navigate("/cart")}
+            />
+            </div>
+      
       <div className="w-full h-12 flex flex-row justify-between items-center bg-orange-400  ">
         <div className=" text-center font-bold ml-[2%] flex text-sm">ＣＬＯＵＤＨＵＴ</div>
         <div className="w-[40%]">
