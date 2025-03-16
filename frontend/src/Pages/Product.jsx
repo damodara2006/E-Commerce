@@ -16,7 +16,7 @@ function Product() {
   return (
     <div className="w-screen h-screen">
       <FaShoppingCart
-              className=" right-10 absolute top-10 hover:text-gray-400 transition-all z-50"
+              className=" right-10 absolute top-10 hover:text-gray-400 text-3xl transition-all z-50"
               onClick={() => navigate("/cart")}
             />
       <div className="flex items-center justify-center relative w-screen flex-col">
