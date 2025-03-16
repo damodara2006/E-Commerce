@@ -12,19 +12,19 @@ function Cart() {
   const [price ,setprice] = useState(0)
   const navigate = useNavigate();
   useEffect(() => {
-    axios.post("http://localhost:8000/allcart").then((res) => {
+    axios.post("https://e-commerce-3-7nwk.onrender.com/allcart").then((res) => {
       setarray(res.data);
     });
   },[]);
 
   useEffect(() => {
     axios
-      .post("http://localhost:8000/allcarts", { array })
+      .post("https://e-commerce-3-7nwk.onrender.com/allcarts", { array })
       .then((res) => setarrays(res.data));
   }, [array]);
 
   const handlearray = (item, key) => {
-    axios.post("http://localhost:8000/cartdlt", { id: item._id });
+    axios.post("https://e-commerce-3-7nwk.onrender.com/cartdlt", { id: item._id });
     toast.success("Deleted");
 
     if (newarray.length == 0) {
