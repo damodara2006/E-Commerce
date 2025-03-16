@@ -21,7 +21,7 @@ function Product() {
             />
       <div className="flex items-center justify-center relative w-screen flex-col">
         <div className="w-[50%] mt-10 flex justify-center">
-          <img src={card.card.url} className="w-fit h-[500px]" alt="" />
+          <img src={card.card.url} className="w-fit h-[400px]" alt="" />
         </div>
         <div className="flex flex-col  items-center">
           <p className="font-emblema text-5xl mt-5">{card.card.name}</p>
