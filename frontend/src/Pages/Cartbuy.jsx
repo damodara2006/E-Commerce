@@ -22,7 +22,7 @@ function Cartbuy() {
       <ToastContainer/>
         <ul className='h-[80%] flex justify-center gap-2 flex-wrap' >{(card[0].card).map((item ,key)=>(
         <li className='flex flex-col  justify-center mt-5 items-center ' key={key}><p className='text-2xl font-emblema mb-5'>{item.name}</p>
-        <img className='w-50 h-45' src={item.url} alt="" />
+        <img className='w-50 h-50' src={item.url} alt="" />
         <p className='text-2xl mt-5 font-bebas'>Price:  <span className='text-green-600 font-cinzel'> ₹{item.price}</span></p></li>
       ))}</ul>
 
