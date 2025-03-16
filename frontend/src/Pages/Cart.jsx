@@ -39,7 +39,6 @@ function Cart() {
 
   
 
-  toast.success("Deleted");
 
 
   useEffect(()=>{

@@ -10,14 +10,14 @@ function Men() {
   const navigate = useNavigate();
   const num = 1;
   useEffect(() => {
-    axios.get("http://localhost:8000/alluser/7").then((res) => {
+    axios.get("https://e-commerce-3-7nwk.onrender.com/alluser/7").then((res) => {
       setdata(res.data);
     });
   }, []);
 
   const handlecart = async (card) => {
     axios
-      .post("http://localhost:8000/cart", { id: card._id, num })
+      .post("https://e-commerce-3-7nwk.onrender.com/cart", { id: card._id, num })
   };
 
   const handleproduct = (card) => {

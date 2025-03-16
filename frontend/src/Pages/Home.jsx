@@ -68,9 +68,9 @@ function Home() {
   
 
   return (
-    <div className="text-black w-screen h-full  overflow-hidden bg-gray-300 relative overflow-hidden ">
+    <div className="text-black w-screen h-full   bg-gray-300 relative overflow-hidden ">
       <div className="w-full h-12 flex flex-row justify-between items-center bg-orange-400  ">
-        <div className=" text-center font-bold ml-[4%] flex ">ＣＬＯＵＤＨＵＴ</div>
+        <div className=" text-center font-bold ml-[2%] flex ">ＣＬＯＵＤＨＵＴ</div>
         <div className="w-[40%]">
           <div className="flex items-center outline-1 focus-within:bg-gray-200 outline-gray-100 transition-all duration-100 rounded-2xl relative">
             <input

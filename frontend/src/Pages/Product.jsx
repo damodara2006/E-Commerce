@@ -8,7 +8,7 @@ function Product() {
   const navigate = useNavigate();
   const handlecart = async (card) => {
     axios
-      .post("http://localhost:8000/cart", { id: card.card._id })
+      .post("https://e-commerce-3-7nwk.onrender.com/cart", { id: card.card._id })
   };
   const handlebuy = (card)=>{
     navigate("/buy" ,{state:{card}})

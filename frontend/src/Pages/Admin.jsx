@@ -38,7 +38,7 @@ function Admin() {
   const handleheader = () => {
     if (name && url && price) {
       axios
-        .post(`http://localhost:8000/${value}`, { name, url, price })
+        .post(`https://e-commerce-3-7nwk.onrender.com/${value}`, { name, url, price })
       setname("");
       toast.success("Done");
     }
