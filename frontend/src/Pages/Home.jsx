@@ -72,7 +72,7 @@ function Home() {
     <div className="text-black w-screen h-full   bg-gray-300 relative overflow-hidden ">
       
             <FaShoppingCart
-              className=" fixed top-7 hover:text-gray-400 text-3xl bottom-10 right-10 transition-all"
+              className=" fixed  hover:text-gray-400 text-3xl bottom-10 right-10 transition-all"
               onClick={() => navigate("/cart")}
             />
           
