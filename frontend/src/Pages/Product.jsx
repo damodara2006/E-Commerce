@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useLocation ,useNavigate} from "react-router-dom";
 import { FaShoppingCart } from "react-icons/fa";
+import {ToastContainer , toast} from "react-toastify"
 import axios from "axios";
 function Product() {
   const location = useLocation();
@@ -9,6 +10,8 @@ function Product() {
   const handlecart = async (card) => {
     axios
       .post("https://e-commerce-3-7nwk.onrender.com/cart", { id: card.card._id })
+            toast.success("Product added to cart")
+      
   };
   const handlebuy = (card)=>{
     navigate("/buy" ,{state:{card}})
@@ -43,6 +46,7 @@ function Product() {
       <div className="fixed bottom-0 flex w-screen justify-evenly border h-[5%]">
         <button className="w-[50%] bg-orange-400 font-montserrat text-2xl" onClick={()=>handlebuy(card)} >BUY NOW</button>
         <button className="w-[50%] font-montserrat text-2xl" onClick={()=>handlecart(card)} >ADD TO CART</button>
+        <ToastContainer/>
       </div>
     </div>
   );

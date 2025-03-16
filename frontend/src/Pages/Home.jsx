@@ -9,6 +9,7 @@ import { IoCallSharp } from "react-icons/io5";
 import { FaShoppingCart } from "react-icons/fa";
 import product from "./Product";
 
+
 function Home() {
   const navigate = useNavigate();
   const [alldata, setalldata] = useState([]);
