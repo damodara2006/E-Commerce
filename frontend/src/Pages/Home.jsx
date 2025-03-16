@@ -60,6 +60,10 @@ function Home() {
   const handleproduct = (card) => {
     navigate("/product", { state: { card } });
   };
+  
+  
+  
+
   return (
     <div className="text-black w-screen relative overflow-hidden">
       <div className="w-full h-12 flex flex-row justify-between items-center">
@@ -146,7 +150,11 @@ function Home() {
                     />
                     <p className="text-center">{card.name}</p>
                     <p className="text-center">
-                      Price: ₹{card.price ? card.price : 0}
+                      Price: {card.price ? (Intl.NumberFormat( 'en-IN', {
+                        style:'currency',
+                        currency:'INR',
+                        maximumFractionDigits:0
+                      }).format(card.price)): 0}
                     </p>
                   </>
                 }

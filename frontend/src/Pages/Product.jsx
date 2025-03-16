@@ -29,7 +29,11 @@ function Product() {
             Price:{" "}
             {
               <span className="text-green-600 font-bebas">
-                ₹ {card.card.price}
+                 {(Intl.NumberFormat( 'en-IN', {
+                        style:'currency',
+                        currency:'INR',
+                        maximumFractionDigits:0
+                      }).format(card.card.price))}
               </span>
             }
           </p>

@@ -43,7 +43,11 @@ function Men() {
                   src={card.url}
                   alt=""
                 />
-                <p className=" absolute bottom-0">Price: ₹{card?.price}</p>
+                <p className=" absolute bottom-0">Price: {(Intl.NumberFormat( 'en-IN', {
+                        style:'currency',
+                        currency:'INR',
+                        maximumFractionDigits:0
+                      }).format(card.price))}</p>
                 <button
                   key={key}
                   onMouseEnter={() => setid(card._id)}

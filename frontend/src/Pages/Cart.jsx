@@ -48,15 +48,24 @@ function Cart() {
   })
   },[arrays ,array])
 
+
+  
+
+
   const handlebuy = (card)=>{
     navigate("/cartbuy" ,{state:{card :card , price : price}})
   }
+
+ 
   return (
     <div className="w-screen h-screen ">
 
       <div className="w-full h-10 border flex items-center justify-center bg-gradient-to-l from-gray-100 to-gray-500">
         <p className="pl-7 font-mono ">Total price: </p>
-        <p className="text-red-400 font-mono">{`   ₹${ price}`}</p>
+        <p className="text-red-400 font-mono">{`   ₹${Intl.NumberFormat('en-IN', {
+     currency:'INR',
+     maximumFractionDigits:0
+   }).format(price)}`}</p>
         <button className=" border px-2 rounded-sm hover:bg-gray-400 transition-all absolute right-10" onClick={()=>handlebuy(arrays)}>Buy</button>
       </div>
       {arrays.length == 0 ? (
@@ -97,7 +106,11 @@ function Cart() {
                           alt=""
                         />
                         <p className="text-center h-full w-[22%] ">
-                         <span className="text-red-600">Price:</span>  {item.price ? <span className="text-green-700 ">₹{item.price}</span> : "0"}
+                         <span className="text-red-600">Price:</span>  {item.price ? <span className="text-green-700 ">{(Intl.NumberFormat( 'en-IN', {
+                        style:'currency',
+                        currency:'INR',
+                        maximumFractionDigits:0
+                      }).format(item.price))}</span> : "0"}
                         </p>
                         <p className="text-center h-full w-[22%]  ">
                           {item.name}
@@ -125,7 +138,11 @@ function Cart() {
                           alt=""
                         />
                         <p className="text-center h-full w-[22%] ">
-                         <span className="text-red-600">Price:</span>  {item.price ? <span className="text-green-700 ">₹{item.price}</span> : "0"}
+                         <span className="text-red-600">Price:</span>  {item.price ? <span className="text-green-700 ">{(Intl.NumberFormat( 'en-IN', {
+                        style:'currency',
+                        currency:'INR',
+                        maximumFractionDigits:0
+                      }).format(item.price))}</span> : "0"}
                         </p>
                         <p className="text-center h-full w-[22%]  ">
                           {item.name}

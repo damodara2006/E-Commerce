@@ -29,7 +29,10 @@ function Cartbuy() {
       ))}</ul>
 
       <div className='mt-24' >
-      <p className='text-center -mt-16 mb-10 text-3xl font-emblema'>Total price :  <span className='font-emblema text-green-600' > ₹{price}</span></p>
+      <p className='text-center -mt-16 mb-10 text-3xl font-emblema'>Total price :  <span className='font-emblema text-green-600' > ₹{Intl.NumberFormat({
+       style:'currency',
+        currency:'INR'
+      }).format(price)}</span></p>
 
 <div className='w-full flex  items-center  h-24 flex-col overflow-hidden relative transition-all duration-200'>
 <button className='z-50 flex justify-center w-[25%] font-bebas bg-gradient-to-r from-orange-600 to-orange-300 rounded-3xl text-2xl border ' onClick={()=>setbuy(22)}>Buy</button>

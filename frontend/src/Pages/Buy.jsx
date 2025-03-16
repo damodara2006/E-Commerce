@@ -19,7 +19,11 @@ function Buy() {
         <ul className='h-[80%] flex justify-center' >{card.map((item ,key)=>(
         <li className='flex flex-col  justify-center mt-5 items-center ' key={key}><p className='text-2xl font-emblema mb-5'>{item.card.card.name}</p>
         <img className='w-50 h-55' src={item.card.card.url} alt="" />
-        <p className='text-2xl mt-5 font-bebas'>Price:  <span className='text-green-600 font-cinzel'> ₹{item.card.card.price}</span></p></li>
+        <p className='text-2xl mt-5 font-bebas'>Price:  <span className='text-green-600 font-cinzel'> {(Intl.NumberFormat( 'en-IN', {
+                        style:'currency',
+                        currency:'INR',
+                        maximumFractionDigits:0
+                      }).format(item.card.card.price))}</span></p></li>
       ))}</ul>
 
       <div className='w-full flex  items-center  h-24 flex-col overflow-hidden relative transition-all duration-200'>
