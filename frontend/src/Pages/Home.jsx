@@ -148,9 +148,9 @@ function Home() {
             </li>
           ))}
         </ul>
-        <div className="w-[100%] ml-2.5"></div>
+        
       </div >
-      <div className="px-16 ml-3.5 z-0 ">
+      <div className="px-16 z-0 ">
         <ul className="flex flex-wrap justify-center gap-10">
           {data.length == 0 ? (
             <p>No Results</p>
