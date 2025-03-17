@@ -32,9 +32,8 @@ function App() {
         <Route path="/cart" element={<Cart />} />
         <Route path="/nope" element={<Nope />} />
         <Route path="/product" element={<Product />} />
-        <Route path="/buy" element={<Buy/>} />
-        <Route path="/cartbuy" element={<Cartbuy/>} />
-        
+        <Route path="/buy" element={<Buy />} />
+        <Route path="/cartbuy" element={<Cartbuy />} />
       </Routes>
     </BrowserRouter>
   );

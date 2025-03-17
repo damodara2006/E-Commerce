@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
-import dotenv from "dotenv"
+import dotenv from "dotenv";
 // import env from "/home/pdp28/Projects/E-Commerce-Website/E-Commerce/frontend/.env"
 import { Meta } from "react-router-dom";
 function Admin() {
@@ -37,8 +37,11 @@ function Admin() {
 
   const handleheader = () => {
     if (name && url && price) {
-      axios
-        .post(`https://e-commerce-3-7nwk.onrender.com/${value}`, { name, url, price })
+      axios.post(`https://e-commerce-3-7nwk.onrender.com/${value}`, {
+        name,
+        url,
+        price
+      });
       setname("");
       toast.success("Done");
     }

@@ -9,13 +9,13 @@ function Cart() {
   const [arrays, setarrays] = useState([]);
   let [newarray, setnewarray] = useState([]);
   const [Loading, setLoading] = useState(true);
-  const [price ,setprice] = useState(0)
+  const [price, setprice] = useState(0);
   const navigate = useNavigate();
   useEffect(() => {
     axios.post("https://e-commerce-3-7nwk.onrender.com/allcart").then((res) => {
       setarray(res.data);
     });
-  },[]);
+  }, []);
 
   useEffect(() => {
     axios
@@ -24,7 +24,9 @@ function Cart() {
   }, [array]);
 
   const handlearray = (item, key) => {
-    axios.post("https://e-commerce-3-7nwk.onrender.com/cartdlt", { id: item._id });
+    axios.post("https://e-commerce-3-7nwk.onrender.com/cartdlt", {
+      id: item._id
+    });
 
     if (newarray.length == 0) {
       newarray = arrays.filter((item, keys) => keys !== key);
@@ -35,47 +37,45 @@ function Cart() {
     }
   };
 
+  useEffect(() => {
+    arrays.map((item) => {
+      setprice((prev) => prev + Number(item.price));
+    });
+  }, [arrays, array]);
 
-  
+  const handlebuy = (card) => {
+    navigate("/cartbuy", { state: { card: card, price: price } });
+  };
 
-
-
-  useEffect(()=>{
-    arrays.map((item)=>{
-      setprice( (prev)=> prev + Number(item.price))
-  })
-  },[arrays ,array])
-
-
-  
-
-
-  const handlebuy = (card)=>{
-    navigate("/cartbuy" ,{state:{card :card , price : price}})
-  }
-
- 
   return (
     <div className="w-screen h-screen ">
-
       <div className="w-full h-10 border flex items-center justify-center bg-gradient-to-l from-gray-100 to-gray-500">
         <p className=" font-mono ">Total price: </p>
-        <p className="text-red-400 font-mono">{`   ₹${Intl.NumberFormat('en-IN', {
-     currency:'INR',
-     maximumFractionDigits:0
-   }).format(price)}`}</p>
-        <button className=" border px-2 rounded-sm hover:bg-gray-400 transition-all absolute right-10" onClick={()=>handlebuy(arrays)}>Buy</button>
+        <p className="text-red-400 font-mono">{`   ₹${Intl.NumberFormat(
+          "en-IN",
+          {
+            currency: "INR",
+            maximumFractionDigits: 0
+          }
+        ).format(price)}`}</p>
+        <button
+          className=" border px-2 rounded-sm hover:bg-gray-400 transition-all absolute right-10"
+          onClick={() => handlebuy(arrays)}
+        >
+          Buy
+        </button>
       </div>
       {arrays.length == 0 ? (
-        <div className="flex w-screen h-screen justify-center items-center" >
+        <div className="flex w-screen h-screen justify-center items-center">
           <InfinitySpin
             visible={true}
             width="200"
             color="red"
             ariaLabel="infinity-spin-loading"
-           
           />
-          <p className="text-red-600" >If not loaded, you are not added any items to cart</p>
+          <p className="text-red-600">
+            If not loaded, you are not added any items to cart
+          </p>
         </div>
       ) : (
         <>
@@ -104,11 +104,18 @@ function Cart() {
                           alt=""
                         />
                         <p className="text-center h-full w-[22%] ">
-                         <span className="text-red-600">Price:</span>  {item.price ? <span className="text-green-700 ">{(Intl.NumberFormat( 'en-IN', {
-                        style:'currency',
-                        currency:'INR',
-                        maximumFractionDigits:0
-                      }).format(item.price))}</span> : "0"}
+                          <span className="text-red-600">Price:</span>{" "}
+                          {item.price ? (
+                            <span className="text-green-700 ">
+                              {Intl.NumberFormat("en-IN", {
+                                style: "currency",
+                                currency: "INR",
+                                maximumFractionDigits: 0
+                              }).format(item.price)}
+                            </span>
+                          ) : (
+                            "0"
+                          )}
                         </p>
                         <p className="text-center h-full w-[22%]  ">
                           {item.name}
@@ -136,11 +143,18 @@ function Cart() {
                           alt=""
                         />
                         <p className="text-center h-full w-[22%] ">
-                         <span className="text-red-600">Price:</span>  {item.price ? <span className="text-green-700 ">{(Intl.NumberFormat( 'en-IN', {
-                        style:'currency',
-                        currency:'INR',
-                        maximumFractionDigits:0
-                      }).format(item.price))}</span> : "0"}
+                          <span className="text-red-600">Price:</span>{" "}
+                          {item.price ? (
+                            <span className="text-green-700 ">
+                              {Intl.NumberFormat("en-IN", {
+                                style: "currency",
+                                currency: "INR",
+                                maximumFractionDigits: 0
+                              }).format(item.price)}
+                            </span>
+                          ) : (
+                            "0"
+                          )}
                         </p>
                         <p className="text-center h-full w-[22%]  ">
                           {item.name}

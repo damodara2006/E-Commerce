@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import axios from "axios";
 import { FaShoppingCart } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
-import {ToastContainer , toast} from "react-toastify"
+import { ToastContainer, toast } from "react-toastify";
 
 function Men() {
   const [data, setdata] = useState([]);
@@ -11,16 +11,19 @@ function Men() {
   const navigate = useNavigate();
   const num = 1;
   useEffect(() => {
-    axios.get("https://e-commerce-3-7nwk.onrender.com/alluser/4").then((res) => {
-      setdata(res.data);
-    });
+    axios
+      .get("https://e-commerce-3-7nwk.onrender.com/alluser/4")
+      .then((res) => {
+        setdata(res.data);
+      });
   }, []);
 
   const handlecart = async (card) => {
-    axios
-      .post("https://e-commerce-3-7nwk.onrender.com/cart", { id: card._id, num })
-      toast.success("Product added to cart")
-      
+    axios.post("https://e-commerce-3-7nwk.onrender.com/cart", {
+      id: card._id,
+      num
+    });
+    toast.success("Product added to cart");
   };
 
   const handleproduct = (card) => {
@@ -36,7 +39,8 @@ function Men() {
         {
           <ul className="  flex flex-wrap gap-1 gap-y-2 w-screen justify-evenly mt-15 items-center">
             {data.map((card, key) => (
-              <li  onClick={() => handleproduct(card)}
+              <li
+                onClick={() => handleproduct(card)}
                 className=" z-0 group relative min-w-[150px] h-[250px] border rounded-md  justify-center flex items-center bottom-0"
                 key={key}
               >
@@ -46,23 +50,25 @@ function Men() {
                   src={card.url}
                   alt=""
                 />
-                <p className=" absolute bottom-0">Price: {(Intl.NumberFormat( 'en-IN', {
-                        style:'currency',
-                        currency:'INR',
-                        maximumFractionDigits:0
-                      }).format(card.price))}</p>
+                <p className=" absolute bottom-0">
+                  Price:{" "}
+                  {Intl.NumberFormat("en-IN", {
+                    style: "currency",
+                    currency: "INR",
+                    maximumFractionDigits: 0
+                  }).format(card.price)}
+                </p>
                 <button
                   key={key}
                   onMouseEnter={() => setid(card._id)}
                   className="absolute px-2 opacity-100 group-hover:opacity-100 rounded-md bottom-14 bg-gradient-to-tl from-red-600 to-orange-400 hover:bg-gradient-to-tl hover:from-red-700 hover:to-orange-500 transition-all duration-1000 text-sm cursor-pointer z-50"
-                  
-                  onClick={() =>{ handlecart(card)
-                    
+                  onClick={() => {
+                    handlecart(card);
                   }}
                 >
                   Add to cart
                 </button>
-                <ToastContainer/>
+                <ToastContainer />
               </li>
             ))}
           </ul>

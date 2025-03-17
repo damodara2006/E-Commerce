@@ -9,7 +9,6 @@ import { IoCallSharp } from "react-icons/io5";
 import { FaShoppingCart } from "react-icons/fa";
 import product from "./Product";
 
-
 function Home() {
   const navigate = useNavigate();
   const [alldata, setalldata] = useState([]);
@@ -65,21 +64,18 @@ function Home() {
   const handleproduct = (card) => {
     navigate("/product", { state: { card } });
   };
-  
-  
-  
 
   return (
     <div className="text-black w-screen h-full   bg-gray-300 relative overflow-hidden ">
-      
-            <FaShoppingCart
-              className=" fixed  hover:text-gray-400 text-3xl bottom-10 right-10 transition-all"
-              onClick={() => navigate("/cart")}
-            />
-          
-      
+      <FaShoppingCart
+        className=" fixed  hover:text-gray-400 text-3xl bottom-10 right-10 transition-all"
+        onClick={() => navigate("/cart")}
+      />
+
       <div className="w-full h-12 flex flex-row justify-between items-center bg-orange-400  ">
-        <div className=" text-center font-bold ml-[2%] flex text-sm">ＣＬＯＵＤＨＵＴ</div>
+        <div className=" text-center font-bold ml-[2%] flex text-sm">
+          ＣＬＯＵＤＨＵＴ
+        </div>
         <div className="w-[40%]">
           <div className="flex items-center outline-1 focus-within:bg-gray-200 outline-gray-100 transition-all duration-100 rounded-2xl relative">
             <input
@@ -96,10 +92,15 @@ function Home() {
           </div>
         </div>
         <div className="w-[30%] text-center flex justify-evenly">
-        <a href="mailto:damodara2006@gmail.com"><IoMdMail /></a>
-        <a href="https://www.instagram.com/its_me_pdp28/"><FaInstagram  /> </a>
-        <a href="tel:9043402788"><IoCallSharp /></a>
-       
+          <a href="mailto:damodara2006@gmail.com">
+            <IoMdMail />
+          </a>
+          <a href="https://www.instagram.com/its_me_pdp28/">
+            <FaInstagram />{" "}
+          </a>
+          <a href="tel:9043402788">
+            <IoCallSharp />
+          </a>
         </div>
       </div>
       <div className="w-full border border-gray-200 relative mb-3 bg-gradient-to-r from-gray-600 to-gray-400">
@@ -118,19 +119,29 @@ function Home() {
                 className="transition-all duration-500 cursor-pointer "
               />
             )}
-           
           </div>
           <div className="flex  w-[40%]"> CATEGORY</div>
-        
+
           <ul className="flex font-semibold justify-evenly flex-row sm:w-[50%] md:w-[50%] lg:w-[50%] w-[0%] xl:w-[50%] shrink ">
-            <li className="cursor-pointer text-sm hidden sm:block lg:block xl:block md:block" >HOME</li>
-            <li className="cursor-pointer text-sm hidden sm:block lg:block xl:block md:block" onClick={handleNav}>SHOP</li>
-            <li className="cursor-pointer text-sm hidden sm:block lg:block xl:block md:block" >FEATURES</li>
-            <li className="cursor-pointer text-sm hidden sm:block lg:block xl:block md:block" >PAGES</li>
-            <li className="cursor-pointer text-sm hidden sm:block lg:block xl:block md:block" >BLOG</li>
+            <li className="cursor-pointer text-sm hidden sm:block lg:block xl:block md:block">
+              HOME
+            </li>
+            <li
+              className="cursor-pointer text-sm hidden sm:block lg:block xl:block md:block"
+              onClick={handleNav}
+            >
+              SHOP
+            </li>
+            <li className="cursor-pointer text-sm hidden sm:block lg:block xl:block md:block">
+              FEATURES
+            </li>
+            <li className="cursor-pointer text-sm hidden sm:block lg:block xl:block md:block">
+              PAGES
+            </li>
+            <li className="cursor-pointer text-sm hidden sm:block lg:block xl:block md:block">
+              BLOG
+            </li>
           </ul>
-         
-         
         </nav>
       </div>
       <div className="relative w-full justify-center flex px-[5%] h-fit z-50">
@@ -148,8 +159,7 @@ function Home() {
             </li>
           ))}
         </ul>
-        
-      </div >
+      </div>
       <div className="px-16 z-0 ">
         <ul className="flex flex-wrap justify-center gap-10">
           {data.length == 0 ? (
@@ -171,11 +181,14 @@ function Home() {
                     />
                     <p className="text-center">{card.name}</p>
                     <p className="text-center">
-                      Price: {card.price ? (Intl.NumberFormat( 'en-IN', {
-                        style:'currency',
-                        currency:'INR',
-                        maximumFractionDigits:0
-                      }).format(card.price)): 0}
+                      Price:{" "}
+                      {card.price
+                        ? Intl.NumberFormat("en-IN", {
+                            style: "currency",
+                            currency: "INR",
+                            maximumFractionDigits: 0
+                          }).format(card.price)
+                        : 0}
                     </p>
                   </>
                 }
