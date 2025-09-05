@@ -1,3 +1,6 @@
+### Live preview
+You can view the live preview of this by clicking this link: [Cloudhut](https://e-commerce-jjp0.onrender.com)
+
 # E-Commerce Application
 
 A full-stack MERN (MongoDB, Express.js, React.js, Node.js) e-commerce platform that provides a comprehensive shopping experience with category-based product browsing, cart management, and administrative functionality.
